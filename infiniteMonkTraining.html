@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    h3{width:100%;height:40px;color:rgb(30, 7, 104);text-align:center;border-style:solid; background-color:deepskyblue; border-width:3px;padding:10px;}
+    button{position:relative;top:50px;}
+    .category{display:grid;grid-template-columns:25% 25% 25% 25%;grid-template-rows:200px 200px;border-style:solid;border-width:1px;}
+    .skillbox{width:100%;border-style:solid;border-width:1px;height:200px;}
+    .skillTitle{position:relative;top:0px;}
+    .skillLevel{position:relative;top:20px;}
+    .barBackground{background-color:grey;height:20px;width:300px;position:relative;top:110px;left:20px;}
+    .bar{background-color:blue;height:20px;width:0px;position:relative;top:0px;}
+</style>
+    <title>Infinite Monk Training</title>
+</head>
+<body>
+    <h3>Basics</h3>
+    <div class="category" id="basics">
+        <div class="skillbox" id="stance">
+            <p  class="skillTitle">Stance</p>
+            <div class="barBackground">
+            <div class="bar" id="stanceBar"></div>
+            </div>
+            <p id="stanceP" class="skillLevel"></p>
+            <button id="stanceB">Stance</button>
+        </div>
+            <div class="skillbox" id="mental">
+                <p  class="skillTitle">Mental state</p>
+                <div class="barBackground">
+                <div class="bar" id="mentalBar"></div>
+                </div>
+                <p id="mentalP" class="skillLevel"></p>
+                <button id="mentalB">Concentration</button>
+        </div>
+        <div class="skillbox" id="balance">
+            <p  class="skillTitle">Balance</p>
+            <div class="barBackground">
+            <div class="bar" id="balanceBar"></div>
+            </div>
+            <p id="balanceP" class="skillLevel"></p>
+            <button id="balanceB">Balance</button>
+    </div>
+        <div class="skillbox" id="presence">
+        <p  class="skillTitle">Presence</p>
+            <div class="barBackground">
+            <div class="bar" id="presenceBar"></div>
+            </div>
+            <p id="presenceP" class="skillLevel"></p>
+            <button id="presenceB">Presence</button>
+    </div>
+        <div class="skillbox" id="fluidity">
+        <p  class="skillTitle">Fluidity</p>
+            <div class="barBackground">
+            <div class="bar" id="fluidityBar"></div>
+            </div>
+            <p id="fluidityP" class="skillLevel"></p>
+            <button id="fluidityB">Fluidity</button>
+    </div>
+        <div class="skillbox" id="footwork">
+            <p  class="skillTitle">Footwork</p>
+            <div class="barBackground">
+            <div class="bar" id="footworkBar"></div>
+            </div>
+            <p id="footworkP" class="skillLevel"></p>
+            <button id="footworkB">Footwork</button>
+    </div>
+        <div class="skillbox" id="discipline">
+            <p  class="skillTitle">Discipline</p>
+            <div class="barBackground">
+            <div class="bar" id="disciplineBar"></div>
+            </div>
+            <p id="disciplineP" class="skillLevel"></p>
+            <button id="disciplineB">Discipline</button>
+    </div>
+        <div class="skillbox" id="breathing">
+            <p  class="skillTitle">Proper Breathing</p>
+            <div class="barBackground">
+            <div class="bar" id="breathingBar"></div>
+            </div>
+            <p id="breathingP" class="skillLevel"></p>
+            <button id="breathingB">Proper Breathing</button>
+    </div>
+    </div>
+    <h3>Defense</h3>
+    <div class="category" id="defense">
+        <div class="skillbox" id="falling">
+            <p  class="skillTitle">Falling</p>
+            <div class="barBackground">
+            <div class="bar" id="fallingBar"></div>
+            </div>
+            <p id="fallingP" class="skillLevel"></p>
+            <button id="fallingB">Falling</button>
+        </div>
+        <div class="skillbox" id="blocking">
+            <p  class="skillTitle">Blocking</p>
+            <div class="barBackground">
+            <div class="bar" id="blockingBar"></div>
+            </div>
+            <p id="blockingP" class="skillLevel"></p>
+            <button id="blockingB">Blocking</button> 
+        </div>
+        <div class="skillbox" id="dodging">
+            <p  class="skillTitle">Dodging</p>
+            <div class="barBackground">
+            <div class="bar" id="dodgingBar"></div>
+            </div>
+            <p id="dodgingP" class="skillLevel"></p>
+            <button id="dodgingB">Dodging</button> 
+        </div>
+        <div class="skillbox" id="melding">
+            <p  class="skillTitle">Melding</p>
+            <div class="barBackground">
+            <div class="bar" id="meldingBar"></div>
+            </div>
+            <p id="meldingP" class="skillLevel"></p>
+            <button id="meldingB">Melding</button>  
+        </div>
+        <div class="skillbox" id="countering">
+            <p  class="skillTitle">Countering</p>
+            <div class="barBackground">
+            <div class="bar" id="counteringBar"></div>
+            </div>
+            <p id="counteringP" class="skillLevel"></p>
+            <button id="counteringB">Countering</button> 
+        </div>
+        <div class="skillbox" id="movement">
+            <p  class="skillTitle">Distance awareness</p>
+            <div class="barBackground">
+            <div class="bar" id="movementBar"></div>
+            </div>
+            <p id="movementP" class="skillLevel"></p>
+            <button id="movementB">Defensive movement</button>  
+        </div>
+    </div>
+    <h3>Punches</h3>
+    <div class="category" id="punches">
+        <div class="skillbox" id="jab">
+            <p  class="skillTitle">Jab</p>
+            <div class="barBackground">
+            <div class="bar" id="jabBar"></div>
+            </div>
+            <p id="jabP" class="skillLevel"></p>
+            <button id="jabB">Jab!Jab!Jab!</button>  
+        </div>
+        <div class="skillbox" id="straight">
+                <p class="skillTitle">Straight</p>
+                <div class="barBackground">
+                <div class="bar" id="straightBar"></div>
+                </div>
+                <p id="straightP" class="skillLevel"></p>
+                <button id="straightB">Straight</button>  
+        </div>
+        <div class="skillbox" id="swipe">
+            <p class="skillTitle">Swipe</p>
+                <div class="barBackground">
+                <div class="bar" id="swipeBar"></div>
+                </div>
+                <p id="swipeP" class="skillLevel"></p>
+                <button id="swipeB">Swipe</button>  
+        </div>
+        <div class="skillbox" id="uppercut">
+            <p class="skillTitle">Uppercut</p>
+                <div class="barBackground">
+                <div class="bar" id="uppercutBar"></div>
+                </div>
+                <p id="uppercutP" class="skillLevel"></p>
+                <button id="uppercutB">Uppercut</button>  
+        </div>
+        <div class="skillbox" id="palm">
+            <p class="skillTitle">Palm Strike</p>
+                <div class="barBackground">
+                <div class="bar" id="palmBar"></div>
+                </div>
+                <p id="palmP" class="skillLevel"></p>
+                <button id="palmB">Palm Strike</button>  
+        </div>
+    </div>
+    <h3>Kicks</h3>
+    <div class="category" id="kicks">
+        <div class="skillbox" id="straightK">
+            <p class="skillTitle">Straight Kick</p>
+            <div class="barBackground">
+            <div class="bar" id="straightKBar"></div>
+            </div>
+            <p id="straightKP" class="skillLevel"></p>
+            <button id="straightKB">Straight Kick</button>    
+        </div>
+        <div class="skillbox" id="back">
+                <p class="skillTitle">Back Kick</p>
+                <div class="barBackground">
+                <div class="bar" id="backBar"></div>
+                </div>
+                <p id="backP" class="skillLevel"></p>
+                <button id="backB">Back Kick</button> 
+        </div>
+        <div class="skillbox" id="high">
+            <p class="skillTitle">High Kick</p>
+            <div class="barBackground">
+            <div class="bar" id="highBar"></div>
+            </div>
+            <p id="highP" class="skillLevel"></p>
+            <button id="highB">High Kick</button> 
+        </div>
+        <div class="skillbox" id="low">
+            <p class="skillTitle">Low Kick</p>
+            <div class="barBackground">
+            <div class="bar" id="lowBar"></div>
+            </div>
+            <p id="lowP" class="skillLevel"></p>
+            <button id="lowB">Low Kick</button> 
+        </div>
+        <div class="skillbox" id="roudhouse">
+            <p class="skillTitle">Roundhouse Kick</p>
+            <div class="barBackground">
+            <div class="bar" id="roundhouseBar"></div>
+            </div>
+            <p id="roundhouseP" class="skillLevel"></p>
+            <button id="roundhouseB">Roundhouse Kick</button> 
+        </div>
+    </div>
+    <h3>Wrestling</h3>
+    <div class="category" id="wrestling">
+        <div class="skillbox" id="throws">
+            <p class="skillTitle">Throws</p>
+            <div class="barBackground">
+            <div class="bar" id="throwsBar"></div>
+            </div>
+            <p id="throwsP" class="skillLevel"></p>
+            <button id="throwsB">Throws</button> 
+        </div>
+        <div class="skillbox" id="sweeps">
+            <p class="skillTitle">Sweeps</p>
+            <div class="barBackground">
+            <div class="bar" id="sweepsBar"></div>
+            </div>
+            <p id="sweepsP" class="skillLevel"></p>
+            <button id="sweepsB">Sweeps</button> 
+        </div>
+        <div class="skillbox" id="submissions">
+            <p class="skillTitle">Limb Locks and Submissions</p>
+            <div class="barBackground">
+            <div class="bar" id="submissionsBar"></div>
+            </div>
+            <p id="submissionsP" class="skillLevel"></p>
+            <button id="submissionsB">Submissions</button> 
+        </div>
+        <div class="skillbox" id="evasions">
+            <p class="skillTitle">Evasions</p>
+            <div class="barBackground">
+            <div class="bar" id="evasionsBar"></div>
+            </div>
+            <p id="evasionsP" class="skillLevel"></p>
+            <button id="evasionsB">Evasions</button> 
+        </div>
+        <div class="skillbox" id="pushes">
+            <p class="skillTitle">Pushes</p>
+            <div class="barBackground">
+            <div class="bar" id="pushesBar"></div>
+            </div>
+            <p id="pushesP" class="skillLevel"></p>
+            <button id="pushesB">Pushes</button> 
+        </div>
+    </div>
+    <h3>Athletics</h3>
+    <div class="category" id="athletics">
+        <div class="skillbox" id="tumbling">
+            <p class="skillTitle">Tumbling</p>
+            <div class="barBackground">
+            <div class="bar" id="tumblingBar"></div>
+            </div>
+            <p id="tumblingP" class="skillLevel"></p>
+            <button id="tumblingB">Tumbling</button> 
+        </div>
+        <div class="skillbox" id="parcours">
+            <p class="skillTitle">Parcours</p>
+            <div class="barBackground">
+            <div class="bar" id="parcoursBar"></div>
+            </div>
+            <p id="parcoursP" class="skillLevel"></p>
+            <button id="parcoursB">Parcours</button> 
+        </div>
+        <div class="skillbox" id="distance">
+            <p class="skillTitle">Distance Running</p>
+            <div class="barBackground">
+            <div class="bar" id="distanceBar"></div>
+            </div>
+            <p id="distanceP" class="skillLevel"></p>
+            <button id="distanceB">Run</button> 
+        </div>
+        <div class="skillbox" id="sprint">
+            <p class="skillTitle">Sprinting</p>
+            <div class="barBackground">
+            <div class="bar" id="sprintBar"></div>
+            </div>
+            <p id="sprintP" class="skillLevel"></p>
+            <button id="sprintB">Sprint</button> 
+        </div>
+        <div class="skillbox" id="swimming">
+            <p class="skillTitle">Swimming</p>
+            <div class="barBackground">
+            <div class="bar" id="swimmingBar"></div>
+            </div>
+            <p id="swimmingP" class="skillLevel"></p>
+            <button id="swimmingB">Swimming</button> 
+        </div>
+        <div class="skillbox" id="climbing">
+            <p class="skillTitle">Climbing</p>
+            <div class="barBackground">
+            <div class="bar" id="climbingBar"></div>
+            </div>
+            <p id="climbingP" class="skillLevel"></p>
+            <button id="climbingB">Climbing</button> 
+        </div>
+    </div>
+    <h3>Physical Training</h3>
+    <div class="category" id="physicalTraining">
+        <div class="skillbox" id="stamina">
+            <p class="skillTitle">Stamina training</p>
+            <div class="barBackground">
+            <div class="bar" id="staminaBar"></div>
+            </div>
+            <p id="staminaP" class="skillLevel"></p>
+            <button id="staminaB">Stamina training</button>
+        </div>
+        <div class="skillbox" id="endurance">
+            <p class="skillTitle">Endurance Training</p>
+            <div class="barBackground">
+            <div class="bar" id="enduranceBar"></div>
+            </div>
+            <p id="enduranceP" class="skillLevel"></p>
+            <button id="enduranceB">Endurance Training</button>
+        </div>
+        <div class="skillbox" id="speed">
+            <p class="skillTitle">Speed Training</p>
+            <div class="barBackground">
+            <div class="bar" id="speedBar"></div>
+            </div>
+            <p id="speedP" class="skillLevel"></p>
+            <button id="speedB">Speed Training</button>
+        </div>
+        <div class="skillbox" id="agility">
+            <p class="skillTitle">Agility training</p>
+            <div class="barBackground">
+            <div class="bar" id="agilityBar"></div>
+            </div>
+            <p id="agilityP" class="skillLevel"></p>
+            <button id="agilityB">Agility Training</button>
+        </div>
+        <div class="skillbox" id="flexibility">
+            <p class="skillTitle">Flexibility Training</p>
+            <div class="barBackground">
+            <div class="bar" id="flexibilityBar"></div>
+            </div>
+            <p id="flexibilityP" class="skillLevel"></p>
+            <button id="flexibilityB">Flexibility Training</button>
+        </div>
+        <div class="skillbox" id="staticStrength">
+            <p class="skillTitle">Static Strength Training</p>
+            <div class="barBackground">
+            <div class="bar" id="staticStrengthBar"></div>
+            </div>
+            <p id="staticStrengthP" class="skillLevel"></p>
+            <button id="staticStrengthB">Static Strength Training</button>
+        </div>
+        <div class="skillbox" id="dynamicStrength">
+            <p class="skillTitle">Dynamic Strength Training</p>
+            <div class="barBackground">
+            <div class="bar" id="dynamicStrengthBar"></div>
+            </div>
+            <p id="dynamicStrengthP" class="skillLevel"></p>
+            <button id="dynamicStrengthB">Dynamic Strength Training</button>
+        </div>
+        <div class="skillbox" id="recovery">
+            <p class="skillTitle">Recovery Training</p>
+            <div class="barBackground">
+            <div class="bar" id="recoveryBar"></div>
+            </div>
+            <p id="recoveryP" class="skillLevel"></p>
+            <button id="recoveryB">Recovery Training</button>
+        </div>
+    </div>
+    <h3>Diverse</h3>
+    <div class="category" id="diverse">
+        <div class="skillbox" id="scholarship">
+            <p class="skillTitle">Scholarship</p>
+            <div class="barBackground">
+            <div class="bar" id="scholarshipBar"></div>
+            </div>
+            <p id="scholarshipP" class="skillLevel"></p>
+            <button id="scholarshipB">Study</button>
+        </div>
+        <div class="skillbox" id="meditation">
+            <p class="skillTitle">Meditation</p>
+            <div class="barBackground">
+            <div class="bar" id="meditationBar"></div>
+            </div>
+            <p id="meditationP" class="skillLevel"></p>
+            <button id="meditationB">Meditation</button>
+        </div>
+        <div class="skillbox" id="strategy">
+            <p class="skillTitle">Strategy</p>
+            <div class="barBackground">
+            <div class="bar" id="strategyBar"></div>
+            </div>
+            <p id="strategyP" class="skillLevel"></p>
+            <button id="strategyB">Strategy</button>
+        </div>
+        <div class="skillbox" id="leadership">
+            <p class="skillTitle">Leadership</p>
+            <div class="barBackground">
+            <div class="bar" id="leadershipBar"></div>
+            </div>
+            <p id="leadershipP" class="skillLevel"></p>
+            <button id="leadershipB">Leadership</button>
+        </div>
+        <div class="skillbox" id="survival">
+            <p class="skillTitle">Outdoors Survival</p>
+            <div class="barBackground">
+            <div class="bar" id="survivalBar"></div>
+            </div>
+            <p id="survivalP" class="skillLevel"></p>
+            <button id="survivalB">To nature!</button>
+        </div>
+        <div class="skillbox" id="craft">
+            <p class="skillTitle">Crafts</p>
+            <div class="barBackground">
+            <div class="bar" id="craftBar"></div>
+            </div>
+            <p id="craftP" class="skillLevel"></p>
+            <button id="craftB">Crafts</button>
+        </div>
+        <div class="skillbox" id="gardening">
+            <p class="skillTitle">Gardening</p>
+            <div class="barBackground">
+            <div class="bar" id="gardeningBar"></div>
+            </div>
+            <p id="gardeningP" class="skillLevel"></p>
+            <button id="gardeningB">Gardening</button>
+        </div>
+        <div class="skillbox" id="singing">
+            <p class="skillTitle">Singing</p>
+            <div class="barBackground">
+            <div class="bar" id="singingBar"></div>
+            </div>
+            <p id="singingP" class="skillLevel"></p>
+            <button id="singingB">Singing</button>
+        </div>
+        <div class="skillbox" id="construction">
+            <p class="skillTitle">Construction</p>
+            <div class="barBackground">
+            <div class="bar" id="constructionBar"></div>
+            </div>
+            <p id="constructionP" class="skillLevel"></p>
+            <button id="constructionB">Construction</button>
+        </div>
+    </div>
+    <h3 id="mainLevelP"></h3>
+    <button id="generalT">Train Harder!</button>
+<script>
+    class Skill{xp=0;level=0;toNext=100;}
+    let stance=new Skill;
+    let mental=new Skill;
+    let balance=new Skill;
+    let presence=new Skill;
+    let fluidity=new Skill;
+    let footwork=new Skill;
+    let discipline=new Skill;
+    let breathing=new Skill;
+    let falling=new Skill;
+    let blocking=new Skill;
+    let dodging=new Skill;
+    let melding=new Skill;
+    let countering=new Skill;
+    let movement=new Skill;
+    let jab=new Skill;
+    let straightP=new Skill;
+    let swipe=new Skill;
+    let uppercut=new Skill;
+    let palm=new Skill;
+    let straightK=new Skill;
+    let back=new Skill;
+    let high=new Skill;
+    let low=new Skill;
+    let roundhouse=new Skill;
+    let throws=new Skill;
+    let sweeps=new Skill;
+    let submissions=new Skill;
+    let evasions=new Skill;
+    let pushes=new Skill;
+    let tumbling=new Skill;
+    let parcours=new Skill;
+    let distance=new Skill;
+    let sprint=new Skill;
+    let swimming=new Skill;
+    let climbing=new Skill;
+    let stamina=new Skill;
+    let endurance=new Skill;
+    let speed=new Skill;
+    let agility=new Skill;
+    let flexibility=new Skill;
+    let staticStrength=new Skill;
+    let dynamicStrength=new Skill;
+    let recovery=new Skill;
+    let scholarship=new Skill;
+    let meditation=new Skill;
+    let strategy=new Skill;
+    let leadership=new Skill;
+    let survival=new Skill;
+    let craft=new Skill;
+    let gardening=new Skill;
+    let singing=new Skill;
+    let construction=new Skill;
+    let targetObject={};let level=0;let toNext=1000;let xp=0;
+    let index1=[["stanceB",stance,"stanceBar","stanceP"],
+                ["mentalB",mental,"mentalBar","mentalP"],
+                ["balanceB",balance,"balanceBar","balanceP"],
+                ["presenceB",presence,"presenceBar","presenceP"],
+                ["fluidityB",fluidity,"fluidityBar","fluidityP"],
+                ["footworkB",footwork,"footworkBar","footworkP"],
+                ["disciplineB",discipline,"disciplineBar","disciplineP"],
+                ["breathingB",breathing,"breathingBar","breathingP"],
+                ["fallingB",falling,"fallingBar","fallingP"],
+                ["blockingB",blocking,"blockingBar","blockingP"],
+                ["dodgingB",dodging,"dodgingBar","dodgingP"],
+                ["meldingB",melding,"meldingBar","meldingP"],
+                ["counteringB",countering,"counteringBar","counteringP"],
+                ["movementB",movement,"movementBar","movementP"],
+                ["jabB",jab,"jabBar","jabP"],
+                ["straightB",straightP,"straightBar","straightP"],
+                ["swipeB",swipe,"swipeBar","swipeP"],
+                ["uppercutB",uppercut,"uppercutBar","uppercutP"],
+                ["palmB",palm,"palmBar","palmP"],
+                ["straightKB",straightK,"straightKBar","straightKP"],
+                ["backB",back,"backBar","backP"],
+                ["highB",high,"highBar","highP"],
+                ["lowB",low,"lowBar","lowP"],
+                ["roundhouseB",roundhouse,"roundhouseBar","roundhouseP"],
+                ["throwsB",throws,"throwsBar","throwsP"],
+                ["sweepsB",sweeps,"sweepsBar","sweepsP"],
+                ["submissionsB",submissions,"submissionsBar","submissionsP"],
+                ["evasionsB",evasions,"evasionsBar","evasionsP"],
+                ["pushesB",pushes,"pushesBar","pushesP"],
+                ["tumblingB",tumbling,"tumblingBar","tumblingP"],
+                ["parcoursB",parcours,"parcoursBar","parcoursP"],
+                ["distanceB",distance,"distanceBar","distanceP"],
+                ["sprintB",sprint,"sprintBar","sprintP"],
+                ["swimmingB",swimming,"swimmingBar","swimmingP"],
+                ["climbingB",climbing,"climbingBar","climbingP"],
+                ["staminaB",stamina,"staminaBar","staminaP"],
+                ["enduranceB",endurance,"enduranceBar","enduranceP"],
+                ["speedB",speed,"speedBar","speedP"],
+                ["agilityB",agility,"agilityBar","agilityP"],
+                ["flexibilityB",flexibility,"flexibilityBar","flexibilityP"],
+                ["staticStrengthB",staticStrength,"staticStrengthBar","staticStrengthP"],
+                ["dynamicStrengthB",dynamicStrength,"dynamicStrengthBar","dynamicStrengthP"],
+                ["recoveryB",recovery,"recoveryBar","recoveryP"],
+                ["scholarshipB",scholarship,"scholarshipBar","scholarshipP"],
+                ["meditationB",meditation,"meditationBar","meditationP"],
+                ["strategyB",strategy,"strategyBar","strategyP"],
+                ["leadershipB",leadership,"leadershipBar","leadershipP"],
+                ["survivalB",survival,"survivalBar","survivalP"],
+                ["craftB",craft,"craftBar","craftP"],
+                ["gardeningB",gardening,"gardeningBar","gardeningP"],
+                ["singingB",singing,"singingBar","singingP"],
+                ["constructionB",construction,"constructionBar","constructionP"], 
+            ];  
+    document.getElementById("generalT").addEventListener('click',augment);
+    document.getElementById("stanceB").addEventListener('click',select);
+    document.getElementById("mentalB").addEventListener('click',select);
+    document.getElementById("balanceB").addEventListener('click',select);
+    document.getElementById("presenceB").addEventListener('click',select);
+    document.getElementById("fluidityB").addEventListener('click',select);
+    document.getElementById("footworkB").addEventListener('click',select);
+    document.getElementById("disciplineB").addEventListener('click',select);
+    document.getElementById("breathingB").addEventListener('click',select);
+    document.getElementById("fallingB").addEventListener('click',select);
+    document.getElementById("blockingB").addEventListener('click',select);
+    document.getElementById("dodgingB").addEventListener('click',select);
+    document.getElementById("meldingB").addEventListener('click',select);
+    document.getElementById("counteringB").addEventListener('click',select);
+    document.getElementById("movementB").addEventListener('click',select);
+    document.getElementById("jabB").addEventListener('click',select);
+    document.getElementById("straightB").addEventListener('click',select);
+    document.getElementById("swipeB").addEventListener('click',select);
+    document.getElementById("uppercutB").addEventListener('click',select);
+    document.getElementById("palmB").addEventListener('click',select);
+    document.getElementById("straightKB").addEventListener('click',select);
+    document.getElementById("backB").addEventListener('click',select);
+    document.getElementById("highB").addEventListener('click',select);
+    document.getElementById("lowB").addEventListener('click',select);
+    document.getElementById("roundhouseB").addEventListener('click',select);
+    document.getElementById("throwsB").addEventListener('click',select);
+    document.getElementById("sweepsB").addEventListener('click',select);
+    document.getElementById("submissionsB").addEventListener('click',select);
+    document.getElementById("evasionsB").addEventListener('click',select);
+    document.getElementById("pushesB").addEventListener('click',select);
+    document.getElementById("tumblingB").addEventListener('click',select);
+    document.getElementById("parcoursB").addEventListener('click',select);
+    document.getElementById("distanceB").addEventListener('click',select);
+    document.getElementById("sprintB").addEventListener('click',select);
+    document.getElementById("swimmingB").addEventListener('click',select);
+    document.getElementById("climbingB").addEventListener('click',select);
+    document.getElementById("staminaB").addEventListener('click',select);
+    document.getElementById("enduranceB").addEventListener('click',select);
+    document.getElementById("speedB").addEventListener('click',select);
+    document.getElementById("agilityB").addEventListener('click',select);
+    document.getElementById("flexibilityB").addEventListener('click',select);
+    document.getElementById("staticStrengthB").addEventListener('click',select);
+    document.getElementById("dynamicStrengthB").addEventListener('click',select);
+    document.getElementById("recoveryB").addEventListener('click',select);
+    document.getElementById("scholarshipB").addEventListener('click',select);
+    document.getElementById("meditationB").addEventListener('click',select);
+    document.getElementById("strategyB").addEventListener('click',select);
+    document.getElementById("leadershipB").addEventListener('click',select);
+    document.getElementById("survivalB").addEventListener('click',select);
+    document.getElementById("craftB").addEventListener('click',select);
+    document.getElementById("gardeningB").addEventListener('click',select);
+    document.getElementById("singingB").addEventListener('click',select);
+    document.getElementById("constructionB").addEventListener('click',select);
+    initiate();
+    let start=setInterval(engine,1000);
+    //FUNCTIONS DEFINITION SECTION
+    function augment(){
+        xp++;
+        if (xp==toNext){level++;xp=0;toNext=Math.floor(toNext*1.2)}
+        document.getElementById("mainLevelP").innerHTML=("Level: "+level+"<pre>   <pre>"+"to Next: "+xp+"/"+toNext);
+    }
+    function engine(){
+        if (targetObject[1]==undefined){return false}else{
+            targetObject[1].xp+=(1*(1+level));
+            if (targetObject[1].xp>=targetObject[1].toNext){targetObject[1].xp=0;targetObject[1].level++;targetObject[1].toNext=Math.floor(targetObject[1].toNext*1.2)}
+            let percentDone=targetObject[1].xp/targetObject[1].toNext;
+            let newVal=Math.floor(percentDone*300);
+            newVal+="px";
+            document.getElementById(targetObject[2]).style.width=(newVal);
+            document.getElementById(targetObject[3]).innerHTML="Level: "+targetObject[1].level;
+        }
+    }
+    function initiate(){
+        for (let ii=0;ii<index1.length;ii++){
+            document.getElementById(index1[ii][3]).innerHTML=("Level: "+index1[ii][1].level);
+        }
+        document.getElementById("mainLevelP").innerHTML=("Level: "+level+"<pre>   <pre>"+"to Next: "+xp+"/"+toNext);
+    }
+    function select(){
+        targetObject=selectObject(this.id);
+    }
+    function selectObject(buttonIdentifier){
+        for (let ii=0;ii<index1.length;ii++){
+            if (index1[ii][0]==buttonIdentifier){return index1[ii]}
+        }
+    }
+</script>
+</body>
+</html>
