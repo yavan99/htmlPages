@@ -567,7 +567,7 @@
                 ["singingB",singing,"singingBar","singingP"],
                 ["constructionB",construction,"constructionBar","constructionP"], 
             ];
-    if (document.cookie&&Number(document.cookie)!=0){retrieveCookie();setProgressBars();}
+    if (document.cookie&&document.cookie!="0"){retrieveCookie();setProgressBars();}
     document.getElementById("generalT").addEventListener('click',augment);
     document.getElementById("stanceB").addEventListener('click',select);
     document.getElementById("mentalB").addEventListener('click',select);
@@ -671,8 +671,8 @@
         document.getElementById("mainLevelP").innerHTML=("Level: "+level+"<pre>   <pre>"+"to Next: "+xp+"/"+toNext);
     }
     function reset(){
-        if (confirm("Warning! This will wipe out all your progress!")){document.cookie="0";location.reload(true)}
-        else{}
+        if (confirm("Warning! This will wipe out all your progress!")){clearInterval(start);document.cookie="0";document.location.reload(true);}
+        else{return false}
     }
     function retrieveCookie(){
         let cookie$=document.cookie;
