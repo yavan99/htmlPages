@@ -3,8 +3,9 @@
 <head>
 <style>
     h3{width:100%;height:40px;color:rgb(30, 7, 104);text-align:center;border-style:solid; background-color:deepskyblue; border-width:3px;padding:10px;}
-    button{position:relative;top:50px;}
+    button{position:relative;top:50px;height:40px;}
     .category{display:grid;grid-template-columns:25% 25% 25% 25%;grid-template-rows:200px 200px;border-style:solid;border-width:1px;}
+    .resetButton{background-color:red;float:right;}
     .skillbox{width:100%;border-style:solid;border-width:1px;height:200px;}
     .skillTitle{position:relative;top:0px;}
     .skillLevel{position:relative;top:20px;}
@@ -379,7 +380,7 @@
             <button id="recoveryB">Recovery Training</button>
         </div>
     </div>
-    <h3>Diverse</h3>
+    <h3>Monastery Living</h3>
     <div class="category" id="diverse">
         <div class="skillbox" id="scholarship">
             <p class="skillTitle">Scholarship</p>
@@ -456,61 +457,63 @@
     </div>
     <h3 id="mainLevelP"></h3>
     <button id="generalT">Train Harder!</button>
+    <button id="resetB" class="resetButton">Reset!</button>
 <script>
+    let now=undefined;
     class Skill{xp=0;level=0;toNext=100;}
-    let stance=new Skill;
-    let mental=new Skill;
-    let balance=new Skill;
-    let presence=new Skill;
-    let fluidity=new Skill;
-    let footwork=new Skill;
-    let discipline=new Skill;
-    let breathing=new Skill;
-    let falling=new Skill;
-    let blocking=new Skill;
-    let dodging=new Skill;
-    let melding=new Skill;
-    let countering=new Skill;
-    let movement=new Skill;
-    let jab=new Skill;
-    let straightP=new Skill;
-    let swipe=new Skill;
-    let uppercut=new Skill;
-    let palm=new Skill;
-    let straightK=new Skill;
-    let back=new Skill;
-    let high=new Skill;
-    let low=new Skill;
-    let roundhouse=new Skill;
-    let throws=new Skill;
-    let sweeps=new Skill;
-    let submissions=new Skill;
-    let evasions=new Skill;
-    let pushes=new Skill;
-    let tumbling=new Skill;
-    let parcours=new Skill;
-    let distance=new Skill;
-    let sprint=new Skill;
-    let swimming=new Skill;
-    let climbing=new Skill;
-    let stamina=new Skill;
-    let endurance=new Skill;
-    let speed=new Skill;
-    let agility=new Skill;
-    let flexibility=new Skill;
-    let staticStrength=new Skill;
-    let dynamicStrength=new Skill;
-    let recovery=new Skill;
-    let scholarship=new Skill;
-    let meditation=new Skill;
-    let strategy=new Skill;
-    let leadership=new Skill;
-    let survival=new Skill;
-    let craft=new Skill;
-    let gardening=new Skill;
-    let singing=new Skill;
-    let construction=new Skill;
-    let targetObject={};let level=0;let toNext=1000;let xp=0;
+    let stance=new Skill;stance.bonus=["mental"];
+    let mental=new Skill;mental.bonus=["meditation","discipline"];
+    let balance=new Skill;balance.bonus=["stance","presence"];
+    let presence=new Skill;presence.bonus=["mental","discipline","meditation"];
+    let fluidity=new Skill;fluidity.bonus=["agility"];
+    let footwork=new Skill;footwork.bonus=["stance","balance","speed","agility","fluidity"];
+    let discipline=new Skill;discipline.bonus=["mental","meditation"];
+    let breathing=new Skill;breathing.bonus=["mental","presence","meditation","discipline"];
+    let falling=new Skill;falling.bonus=["agility","speed","presence","balance","stamina"];
+    let blocking=new Skill;blocking.bonus=["agility","speed","presence","mental","movement","stance"];
+    let dodging=new Skill;dodging.bonus=["agility","speed","fluidity","balance","movement","stance"];
+    let melding=new Skill;melding.bonus=["agility","fluidity","presence","mental","footwork","movement"];
+    let countering=new Skill;countering.bonus=["speed","movement","presence","mental"];
+    let movement=new Skill;movement.bonus=["stance","fluidity","speed","footwork"];
+    let jab=new Skill;jab.bonus=["speed","footwork"];
+    let straightP=new Skill;straightP.bonus=["dynamicStrength","breathing"];
+    let swipe=new Skill;swipe.bonus=["speed"];
+    let uppercut=new Skill;uppercut.bonus=["dynamicStrength","speed"];
+    let palm=new Skill;palm.bonus=["dynamicStrength"];
+    let straightK=new Skill;straightK.bonus=["dynamicStrength"];
+    let back=new Skill;back.bonus=["flexibility","dynamicStrength"];
+    let high=new Skill;high.bonus=["flexibility","speed","balance"];
+    let low=new Skill;low.bonus=["speed","dynamicStrength"];
+    let roundhouse=new Skill;roundhouse.bonus=["flexibility","balance"];
+    let throws=new Skill;throws.bonus=["staticStrength","footwork"];
+    let sweeps=new Skill;sweeps.bonus=["stance","footwork","balance","speed","agility"];
+    let submissions=new Skill;submissions.bonus=["staticStrength"];
+    let evasions=new Skill;evasions.bonus=["staticStrength","flexibility","submissions"];
+    let pushes=new Skill;pushes.bonus=["dynamicStrength","balance","footwork"];
+    let tumbling=new Skill;tumbling.bonus=["agility","flexibility"];
+    let parcours=new Skill;parcours.bonus=["falling","agility","tumbling","presence","climbing"];
+    let distance=new Skill;distance.bonus=["endurance"];
+    let sprint=new Skill;sprint.bonus=["dynamicStrength"];
+    let swimming=new Skill;swimming.bonus=["endurance"];
+    let climbing=new Skill;climbing.bonus=["agility","staticStrength","balance"];
+    let stamina=new Skill;stamina.bonus=["discipline","staticStrength"];
+    let endurance=new Skill;endurance.bonus=["discipline","breathing"];
+    let speed=new Skill;speed.bonus=["discipline"];
+    let agility=new Skill;agility.bonus=["discipline"];
+    let flexibility=new Skill;flexibility.bonus=["discipline"];
+    let staticStrength=new Skill;staticStrength.bonus=["discipline"];
+    let dynamicStrength=new Skill;dynamicStrength.bonus=["discipline","staticStrength"];
+    let recovery=new Skill;recovery.bonus=["endurance","discipline","stamina"];
+    let scholarship=new Skill;scholarship.bonus=["meditation","presence","mental"];
+    let meditation=new Skill;meditation.bonus=["presence","breathing","discipline"];
+    let strategy=new Skill;strategy.bonus=["scholarship","presence","leadership"];
+    let leadership=new Skill;leadership.bonus=["presence","mental"];
+    let survival=new Skill;survival.bonus=["scholarship","gardening","endurance","stamina"];
+    let craft=new Skill;craft.bonus=["agility","scholarship"];
+    let gardening=new Skill;gardening.bonus=["scholarship"];
+    let singing=new Skill;singing.bonus=["meditation","presence","breathing"];
+    let construction=new Skill;construction.bonus=["staticStrength","craft"];
+    let targetObject={};let level=0;let toNext=400;let xp=0;
     let index1=[["stanceB",stance,"stanceBar","stanceP"],
                 ["mentalB",mental,"mentalBar","mentalP"],
                 ["balanceB",balance,"balanceBar","balanceP"],
@@ -563,7 +566,8 @@
                 ["gardeningB",gardening,"gardeningBar","gardeningP"],
                 ["singingB",singing,"singingBar","singingP"],
                 ["constructionB",construction,"constructionBar","constructionP"], 
-            ];  
+            ];
+    if (document.cookie){retrieveCookie();setProgressBars();}
     document.getElementById("generalT").addEventListener('click',augment);
     document.getElementById("stanceB").addEventListener('click',select);
     document.getElementById("mentalB").addEventListener('click',select);
@@ -617,30 +621,65 @@
     document.getElementById("gardeningB").addEventListener('click',select);
     document.getElementById("singingB").addEventListener('click',select);
     document.getElementById("constructionB").addEventListener('click',select);
+    document.getElementById("resetB").addEventListener('click',reset);
     initiate();
     let start=setInterval(engine,1000);
     //FUNCTIONS DEFINITION SECTION
     function augment(){
         xp++;
-        if (xp==toNext){level++;xp=0;toNext=Math.floor(toNext*1.2)}
+        if (xp==toNext){level++;xp=0;toNext=Math.floor(toNext*1.12)}
         document.getElementById("mainLevelP").innerHTML=("Level: "+level+"<pre>   <pre>"+"to Next: "+xp+"/"+toNext);
     }
+    function bonusMultiplier(bonusStats){
+        let multiplier=1;
+        let statObjects=[];
+        let totalLevels=0;
+        for (let ii=0;ii<bonusStats.length;ii++){
+            statObjects.push(eval(bonusStats[ii]))
+        }
+        for (let ii=0;ii<statObjects.length;ii++){
+            totalLevels+=statObjects[ii].level;
+        }
+        multiplier+=totalLevels*0.1;
+        return multiplier;
+    }
+    function codify(stat){
+        let statString="";
+        statString+=standardized(stat.xp);statString+=standardized(stat.level);statString+=standardized(stat.toNext);
+        return statString;
+    }
     function engine(){
+        let rightNow=new Date();let elapsed=0;
+        if (now==undefined)
+        {now=new Date();}else{elapsed=(rightNow-now/1000);now=rightNow;}
         if (targetObject[1]==undefined){return false}else{
-            targetObject[1].xp+=(1*(1+level));
-            if (targetObject[1].xp>=targetObject[1].toNext){targetObject[1].xp=0;targetObject[1].level++;targetObject[1].toNext=Math.floor(targetObject[1].toNext*1.2)}
+            targetObject[1].xp+=(1*(1+level))*bonusMultiplier(targetObject[1].bonus);
+            if (targetObject[1].xp>=targetObject[1].toNext){targetObject[1].xp-=targetObject[1].toNext;targetObject[1].level++;targetObject[1].toNext=Math.floor(targetObject[1].toNext*1.2)}
             let percentDone=targetObject[1].xp/targetObject[1].toNext;
             let newVal=Math.floor(percentDone*300);
             newVal+="px";
             document.getElementById(targetObject[2]).style.width=(newVal);
             document.getElementById(targetObject[3]).innerHTML="Level: "+targetObject[1].level;
+            setCookie();
         }
     }
     function initiate(){
         for (let ii=0;ii<index1.length;ii++){
             document.getElementById(index1[ii][3]).innerHTML=("Level: "+index1[ii][1].level);
+            document.getElementById(index1[ii][2]).style.width=[((index1[ii][1].xp/index1[ii][1].toNext)*100)+"%"];
         }
         document.getElementById("mainLevelP").innerHTML=("Level: "+level+"<pre>   <pre>"+"to Next: "+xp+"/"+toNext);
+    }
+    function reset(){
+        if (confirm("Warning! This will wipe out all your progress!")){document.cookie = name + '=; Max-Age=0';reload()}else{}
+    }
+    function retrieveCookie(){
+        let cookie$=document.cookie;
+        let cookieArray=[];
+        for (let ii=0;ii<159;ii++){cookieArray[ii]=Number(cookie$.slice(ii*5,(ii*5)+5))}
+        let placeHolder=0;
+        for (let ii=0;ii<index1.length;ii++){index1[ii][1].xp=cookieArray[placeHolder];index1[ii][1].level=cookieArray[placeHolder+1];index1[ii][1].toNext=cookieArray[placeHolder+2];placeHolder+=3;}
+        level=cookieArray[156];toNext=cookieArray[157];xp=cookieArray[158];
     }
     function select(){
         targetObject=selectObject(this.id);
@@ -650,6 +689,22 @@
             if (index1[ii][0]==buttonIdentifier){return index1[ii]}
         }
     }
+    function setCookie(){
+        let cookie$="";
+        for (let ii=0;ii<index1.length;ii++){
+            cookie$+=codify(index1[ii][1]);
+        }
+        cookie$+=standardized(level)+standardized(toNext)+standardized(xp);
+        document.cookie=cookie$;
+    }
+    function setProgressBars(){};
+    function standardized(number){
+            if (number<10){return ("0000"+number.toString())}
+            if (number<100){return ("000"+number.toString())}
+            if (number<1000){return ("00"+number.toString())}
+            if (number<10000){return("0"+number.toString())}
+            return number.toString();
+        }
 </script>
 </body>
 </html>
